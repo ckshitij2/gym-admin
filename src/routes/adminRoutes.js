@@ -3,8 +3,8 @@ const router = express.Router();
 
 // Dummy admin credentials for demonstration
 const ADMIN_CREDENTIALS = {
-  username: "admin", // Replace with your actual credentials or database lookup
-  password: "admin",
+  username: "aa", // Replace with your actual credentials or database lookup
+  password: "aa",
 };
 
 // Handle the POST request for admin login
@@ -35,13 +35,37 @@ router.post("/authenticatecreds", (req, res) => {
 router.get("/dashboard", (req, res) => {
   // Check if the admin is logged in by checking session data
   if (!req.session.isAdmin) {
-    return res.redirect("/admin-login"); // Redirect to login if not logged in
+    return res.redirect("/"); // Redirect to login if not logged in
   }
 
   // If logged in, render the dashboard
   res.render("home", {
     title: "Admin Dashboard",
+    currentPage: "dashboard",
     username: req.session.username,
+    activeClients: 120,
+    newRegistrations: 15,
+    totalRevenue: 50000,
+    pendingEnquiries: 8,
+  });
+});
+
+// Admin dashboard route (protected)
+router.get("/clientDashboard", (req, res) => {
+  // Check if the admin is logged in by checking session data
+  if (!req.session.isAdmin) {
+    return res.redirect("/"); // Redirect to login if not logged in
+  }
+
+  // If logged in, render the dashboard
+  res.render("clientPanel", {
+    title: "Client Management Dashboard",
+    username: req.session.username,
+    currentPage: "clientDashboard",
+    activeClients: 120,
+    newRegistrations: 15,
+    totalRevenue: 50000,
+    pendingEnquiries: 8,
   });
 });
 

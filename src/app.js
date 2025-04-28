@@ -25,6 +25,11 @@ app.set("views", path.join(__dirname, "../views"));
 // Register partials
 hbs.registerPartials(path.join(__dirname, "../views/partials"));
 
+// Register eq helper
+hbs.registerHelper("eq", function (a, b) {
+  return a === b;
+});
+
 // Middleware to parse form data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // For handling JSON body

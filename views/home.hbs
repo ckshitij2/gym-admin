@@ -1,8 +1,74 @@
 {{> header}} <!-- Include header partial -->
 
-<main>
-  <h2>Welcome to the Home Page!</h2>
-  <p>This is the main content of the home page.</p>
+<main class="dashboard">
+  <h2>Welcome, {{username}}!</h2>
+  
+  <section class="dashboard-cards">
+    <div class="card">
+      <h3>Active Clients</h3>
+      <p>{{activeClients}}</p>
+    </div>
+    <div class="card">
+      <h3>New Registrations</h3>
+      <p>{{newRegistrations}}</p>
+    </div>
+    <div class="card">
+      <h3>Total Revenue</h3>
+      <p>₹{{totalRevenue}}</p>
+    </div>
+    <div class="card">
+      <h3>Pending Enquiries</h3>
+      <p>{{pendingEnquiries}}</p>
+    </div>
+  </section>
 </main>
 
 {{> footer}} <!-- Include footer partial -->
+
+<!-- Add inline styling -->
+<style>
+  .dashboard {
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6f8;
+    min-height: 90vh;
+  }
+
+  .dashboard h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #003366;
+  }
+
+  .dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.2s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card h3 {
+    font-size: 20px;
+    color: #003366;
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+  }
+</style>

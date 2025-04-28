@@ -1,16 +1,35 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>{{title}}</title>
-  <link rel="stylesheet" href="/styles.css"> <!-- optional if you have CSS -->
-</head>
-<body>
-  <header>
-    <h1>My Website Header</h1>
-    <nav>
-      <a class="active" href="/">HOME</a>
-      <a href="/admin/logout">Logout</a>
-    </nav>
-  </header>
-  <hr>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <style>
+      /* Import Google Fonts */ @import
+      url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+      body { margin: 0; font-family: 'Poppins', sans-serif; background-color:
+      #f4f6f8; } .header { background-color: #003366; /* Dark blue */ color:
+      white; padding: 20px; display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; } .welcome-message { font-size:
+      20px; font-weight: 600; } .navbar { display: flex; gap: 20px; } .nav-link
+      { color: white; text-decoration: none; font-size: 16px; font-weight: 500;
+      position: relative; padding: 5px 0; } .nav-link:hover, .nav-link.active {
+      border-bottom: 2px solid white; } .main-content { padding: 20px; }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="welcome-message">
+        VISION FITNESS CLUB ADMIN DASHBOARD
+      </div>
+      <nav class="navbar">
+        <a class="nav-link {{#if (eq currentPage 'dashboard')}}active{{/if}}" href="/admin/dashboard">Home</a>
+        <a class="nav-link {{#if (eq currentPage 'clientDashboard')}}active{{/if}}" href="/admin/clientDashboard">Manage Clients</a>
+        <a class="nav-link" href="/admin/logout">Logout</a>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <!-- Your page content here -->
+    </main>
+  </body>
+</html>
