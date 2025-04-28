@@ -2,8 +2,23 @@
 
 <main class="dashboard">
   <h2>Welcome, {{username}}!</h2>
-  
+
+  <!-- Dashboard Cards -->
   <section class="dashboard-cards">
+    <!-- Make an Announcement Card -->
+    <div class="card announcement-card">
+      <h3>Make an Announcement</h3>
+      <p>Here you can create an announcement for your clients. Click below to create one.</p>
+      <a href="/admin/announcement" class="announcement-btn">Create Announcement</a>
+    </div>
+
+    <!-- Send Reminder Card -->
+    <div class="card reminder-card">
+      <h3>Send Reminder</h3>
+      <p>Send a reminder to your clients regarding upcoming events, payments, etc.</p>
+      <a href="/admin/sendReminder" class="reminder-btn">Send Reminder</a>
+    </div>
+
     <div class="card">
       <h3>Active Clients</h3>
       <p>{{activeClients}}</p>
@@ -19,6 +34,15 @@
     <div class="card">
       <h3>Pending Enquiries</h3>
       <p>{{pendingEnquiries}}</p>
+    </div>
+    <!-- Upcoming Holidays Card -->
+    <div class="card">
+      <h3>Upcoming Holidays</h3>
+      <ul class="holiday-list">
+        {{#each upcomingHolidays}}
+          <li>{{this.date}} - {{this.name}}</li>
+        {{/each}}
+      </ul>
     </div>
   </section>
 </main>
@@ -42,17 +66,19 @@
 
   .dashboard-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* Three cards per row */
     gap: 20px;
+    margin-top: 20px;
   }
 
   .card {
     background-color: white;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.2s;
+    height: 200px;
   }
 
   .card:hover {
@@ -66,9 +92,75 @@
   }
 
   .card p {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin: 0;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  .holiday-list {
+    list-style-type: none;
+    padding: 0;
+    font-size: 16px;
+    color: #555;
+  }
+
+  .holiday-list li {
+    margin-bottom: 10px;
+  }
+
+  /* Announcement Card Styling */
+  .announcement-card {
+    background-color: #17a2b8; /* Info Blue */
+    color: white;
+    padding: 30px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .announcement-btn {
+    background-color: #28a745; /* Green */
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  .announcement-btn:hover {
+    background-color: #138496; /* Darker green on hover */
+  }
+
+  /* Reminder Card Styling */
+  .reminder-card {
+    background-color: #ffc107; /* Yellow */
+    color: white;
+    padding: 30px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .reminder-btn {
+    background-color: #dc3545; /* Red */
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  .reminder-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
   }
 </style>

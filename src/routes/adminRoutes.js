@@ -3,8 +3,8 @@ const router = express.Router();
 
 // Dummy admin credentials for demonstration
 const ADMIN_CREDENTIALS = {
-  username: "aa", // Replace with your actual credentials or database lookup
-  password: "aa",
+  username: "kc", // Replace with your actual credentials or database lookup
+  password: "kc",
 };
 
 // Handle the POST request for admin login
