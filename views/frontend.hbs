@@ -46,6 +46,92 @@
       text-decoration: none;
       cursor: pointer;
     }
+
+    /* General styling for the page */
+    .top-bar {
+      text-align: right;
+      margin: 20px;
+    }
+
+    .top-bar a {
+      font-size: 18px;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .main-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 30px;
+    }
+
+    .select {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    table {
+      width: 100%;
+      border-spacing: 10px;
+      text-align: center;
+    }
+
+    td {
+      background-color: black;
+      border: 1px solid white;
+      height: 600px;
+      width: 33%; /* Ensure each cell takes up 1/3 of the table's width */
+      position: relative;
+    }
+
+    td img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensure the image covers the whole box without distortion */
+    }
+
+    .button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      table {
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      td {
+        height: auto;
+        padding: 10px;
+      }
+
+      .button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+
+      td img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -56,10 +142,62 @@
   </div>
 
   <!-- Main content -->
-  <main>
-    <div>
-      <h1>{{title}}</h1> <!-- Dynamic title -->
-      <p>This page has no header, only a footer below.</p>
+  <main class="main-content">
+    <div class="select">
+      <table>
+        <tr>
+          <td>
+            <img src="/images/chest_images/chest_logo.jpg" alt="Chest Logo">
+            <center>
+              <a href="chest.html">
+                <button class="button">SEARCH</button>
+              </a>
+            </center>
+          </td>
+          <td>
+            <img src="/images/back_images/back.jpg" alt="Back Image">
+            <center>
+              <a href="back.html">
+                <button class="button">SEARCH</button>
+              </a>
+            </center>
+          </td>
+          <td>
+            <img src="public/images/thigh_images/thigh.jpg" alt="Thigh Image">
+            <center>
+              <a href="thigh.html">
+                <button class="button">SEARCH</button>
+              </a>
+            </center>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img src="/images/biceps_images/biceps.jfif" alt="Biceps Image">
+            <center>
+              <a href="biceps.html">
+                <button class="button">SEARCH</button>
+              </a>
+            </center>
+          </td>
+          <td>
+            <img src="/images/triceps_images/triceps.jfif" alt="Triceps Image">
+            <center>
+              <a href="triceps.html">
+                <button class="button">SEARCH</button>
+              </a>
+            </center>
+          </td>
+          <td>
+            <img src="/images/warmup_images/warmup_logo.png" alt="Warmup Logo">
+            <center>
+              <a href="warmup.html">
+                <button class="button">SEARCH</button>
+              </a>
+            </center>
+          </td>
+        </tr>
+      </table>
     </div>
   </main>
 

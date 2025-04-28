@@ -7,8 +7,16 @@ const clientRoutes = require("./routes/clients");
 const adminRoutes = require("./routes/adminRoutes"); // Import admin routes
 const hbs = require("hbs"); // Import hbs
 
+console.log("Servimng ", path.join(__dirname, "public"));
+
+app.use((req, res, next) => {
+  console.log(`Request for ${req.url}`);
+  next();
+});
+
 // Serve static files from the public directory
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("public"));
 
 // Set up view engine and views folder
 app.set("view engine", "hbs");

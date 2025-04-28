@@ -1,4 +1,30 @@
 <div id="loginModal" class="modal">
+  <style>
+    /* Modal styling */ .modal { display: none; position: fixed; z-index: 1;
+    left: 0; top: 0; width: 100%; height: 100%; overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); padding-top: 60px; transition: opacity
+    0.3s ease; } .modal-content { background-color: #fff; margin: 5% auto;
+    padding: 20px; border: 1px solid #888; width: 80%; max-width: 400px;
+    border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+    .modal-content h2 { font-family: 'Arial', sans-serif; font-size: 24px;
+    color: #333; text-align: center; margin-bottom: 20px; } .close-btn { color:
+    #aaa; font-size: 28px; font-weight: bold; position: absolute; right: 10px;
+    top: 10px; cursor: pointer; } .close-btn:hover, .close-btn:focus { color:
+    black; } label { font-family: 'Arial', sans-serif; font-size: 16px; color:
+    #333; } input { width: 100%; padding: 10px; margin: 10px 0; border: 1px
+    solid #ccc; border-radius: 4px; font-size: 16px; font-family: 'Arial',
+    sans-serif; box-sizing: border-box; } input:focus { border-color: #007bff;
+    outline: none; } .submit-btn { width: 100%; padding: 12px; background-color:
+    #007bff; color: white; font-size: 16px; border: none; border-radius: 4px;
+    cursor: pointer; transition: background-color 0.3s ease; } .submit-btn:hover
+    { background-color: #0056b3; } .error-message { color: red; text-align:
+    center; font-size: 14px; margin-top: 10px; } /* Responsive design for modal
+    */ @media (max-width: 768px) { .modal-content { width: 90%; padding: 15px; }
+    .close-btn { font-size: 24px; } } @media (max-width: 480px) { .modal-content
+    { width: 100%; padding: 10px; } .close-btn { font-size: 20px; } h2 {
+    font-size: 18px; } label { font-size: 14px; } input { padding: 8px;
+    font-size: 14px; } .submit-btn { padding: 10px; font-size: 14px; } }
+  </style>
   <div class="modal-content">
     <!-- Close Button -->
     <span class="close-btn" id="closeModal">&times;</span>
@@ -22,11 +48,10 @@
         required
       />
       <br />
-      <button type="submit">Login</button>
+      <button type="submit" class="submit-btn">Login</button>
     </form>
     {{#if error}}
-      <p style="color: red;">{{error}}</p>
-      <!-- Display error if credentials are incorrect -->
+      <p class="error-message">{{error}}</p>
     {{/if}}
   </div>
 </div>
