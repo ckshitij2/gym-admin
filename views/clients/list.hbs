@@ -1,0 +1,24 @@
+<!-- views/clients/list.hbs -->
+<h1>Client List</h1>
+<a href="/clients/add">Add New Client</a>
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Age</th>
+    <th>Actions</th>
+  </tr>
+  {{#each clients}}
+    <tr>
+      <td>{{this.first_name}}</td>
+      <td>{{this.last_name}}</td>
+      <td>{{this.age}}</td>
+      <td>
+        <a href="/clients/edit/{{this.id}}">Edit</a>
+        <form action="/clients/delete/{{this.id}}" method="POST">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+  {{/each}}
+</table>

@@ -1,0 +1,32 @@
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <!-- Close Button -->
+    <span class="close-btn" id="closeModal">&times;</span>
+    <h2>Admin Login</h2>
+    <form action="/admin/authenticatecreds" method="POST">
+      <label for="username">Username:</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Enter Your username"
+        required
+      />
+      <br />
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter your password"
+        required
+      />
+      <br />
+      <button type="submit">Login</button>
+    </form>
+    {{#if error}}
+      <p style="color: red;">{{error}}</p>
+      <!-- Display error if credentials are incorrect -->
+    {{/if}}
+  </div>
+</div>

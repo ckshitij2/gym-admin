@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    /* Modal styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+      padding-top: 60px; /* Position the modal */
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 400px;
+      border-radius: 8px;
+    }
+
+    .close-btn {
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+      z-index: 10; /* Ensure the button appears on top */
+    }
+
+    .close-btn:hover,
+    .close-btn:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar with Login link -->
+  <div class="top-bar">
+    <a href="javascript:void(0)" id="loginLink">Login as Admin</a>
+  </div>
+
+  <!-- Main content -->
+  <main>
+    <div>
+      <h1>{{title}}</h1> <!-- Dynamic title -->
+      <p>This page has no header, only a footer below.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  {{> footer}}
+
+  <!-- Modal for Admin Login -->
+  {{> loginModal}}
+
+  <script>
+    // Get the modal and link
+    var modal = document.getElementById("loginModal");
+    var loginLink = document.getElementById("loginLink");
+    var closeModal = document.getElementById("closeModal");
+
+    // Open the modal when the login link is clicked
+    loginLink.onclick = function() {
+      modal.style.display = "block";
+    };
+
+    // Close the modal when the user clicks on the close button inside the modal
+    closeModal.onclick = function() {
+      modal.style.display = "none";
+    };
+
+    // Close the modal if the user clicks outside the modal content
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <style>
+      .error-container { display: flex; justify-content: center; align-items:
+      center; height: 100vh; text-align: center; background-color: #f8f9fa; }
+      .error-message { background-color: #fff; padding: 20px; border-radius:
+      8px; border: 1px solid #ccc; font-size: 18px; color: #d9534f; }
+    </style>
+  </head>
+  <body>
+
+    <div class="error-container">
+      <div class="error-message">
+        <h2>{{title}}</h2>
+        {{#if error}}
+          <p>{{error}}</p>
+        {{else}}
+          <p>An unknown error occurred. Please try again later.</p>
+        {{/if}}
+      </div>
+    </div>
+
+  </body>
+</html>
